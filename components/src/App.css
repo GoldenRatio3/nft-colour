@@ -4,3 +4,12 @@
   border-radius: 50%;
   display: inline-block;
 }
+
+.account-brand {
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 13rem;
+  text-decoration: none;
+  white-space: nowrap;
+  color: white;
+}

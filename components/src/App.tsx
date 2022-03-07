@@ -6,7 +6,26 @@ import "bootstrap/dist/css/bootstrap.css";
 
 declare let window: any;
 
-class App extends Component {
+class App extends Component<{}, { account: string }> {
+  async componentWillMount() {
+    await this.loadWeb3();
+    await this.loadBlockchainData();
+  }
+
+  async loadBlockchainData() {
+    const web3 = window.web3;
+    // Load accounts
+    const accounts = await web3.eth.getAccounts();
+    this.setState({ account: accounts[0] });
+  }
+
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      account: "",
+    };
+  }
+
   async loadWeb3() {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -24,21 +43,12 @@ class App extends Component {
     return (
       <div>
         <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-          <a
-            className="navbar-brand col-sm-3 col-md-2 mr-0"
-            href="http://www.dappuniversity.com/bootcamp"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Color Tokens
-          </a>
-          <ul className="navbar-nav px-3">
-            <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-              <small className="text-white">
-                <span id="account">{"account"}</span>
-              </small>
-            </li>
-          </ul>
+          <div className="navbar-brand col-sm-3 col-md-2 mr-0">
+            Colour Tokens
+          </div>
+          <div className="account-brand col-sm-3 col-md-2">
+            <small>{this.state.account}</small>
+          </div>
         </nav>
         <div className="container-fluid mt-5">
           <div className="row">
