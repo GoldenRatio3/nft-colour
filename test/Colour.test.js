@@ -56,7 +56,7 @@ describe("Colours", () => {
       await colour.mint("#FFFFFF");
       await colour.mint("#000000");
       await colour.mint("#EC026B");
-      const total = await colour.balanceOf(owner.address);
+      const total = await colour.totalSupply();
 
       let colourStr;
       const result = [];
