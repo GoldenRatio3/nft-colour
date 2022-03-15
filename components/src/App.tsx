@@ -81,7 +81,8 @@ class App extends Component<{}, IState> {
           <div className="row">
             <main
               role="main"
-              className="col-lg-12 d-flex text-center content-center"
+              className="col-lg-12 d-flex text-center flex-wrap"
+              style={{ alignContent: "center", flexDirection: "column" }}
             >
               <div className="content mr-auto ml-auto">
                 <h1>Issue Token</h1>
