@@ -13,6 +13,8 @@ interface IState {
   colours?: any[];
 }
 class App extends Component<{}, IState> {
+  colour: React.RefObject<HTMLInputElement>;
+
   async componentWillMount() {
     await this.loadWeb3();
     await this.loadBlockchainData();
@@ -46,13 +48,6 @@ class App extends Component<{}, IState> {
     }
   }
 
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      account: "",
-    };
-  }
-
   async loadWeb3() {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -64,6 +59,27 @@ class App extends Component<{}, IState> {
         "Non-ethereum browser detected. You should consider trying MetaMask."
       );
     }
+  }
+
+  mint = (colour: String | undefined) => {
+    this.state.contract.methods
+      .mint(colour)
+      .send({ from: this.state.account })
+      .once("receipt", (receipt: any) => {
+        this.setState({
+          colours: [...(this.state.colours ?? []), colour],
+        });
+      });
+  };
+
+  constructor(props: any) {
+    super(props);
+
+    this.colour = React.createRef();
+
+    this.state = {
+      account: "",
+    };
   }
 
   render() {
@@ -89,13 +105,14 @@ class App extends Component<{}, IState> {
                 <form
                   onSubmit={(event) => {
                     event.preventDefault();
+                    this.mint(this.colour.current?.value);
                   }}
                 >
                   <input
                     type="text"
                     className="form-control mb-1"
                     placeholder="e.g. #FFFFFF"
-                    ref={(input) => {}}
+                    ref={this.colour}
                   />
                   <input
                     type="submit"
