@@ -1,5 +1,7 @@
 # NFT Colour
 
+[Demo](https://goldenratio3.github.io/nft-colour/)
+
 ## Getting Started
 
 1. Run local blockchain `npx hardhat node`
