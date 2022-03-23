@@ -34,7 +34,7 @@ class App extends Component<{}, IState> {
     //const address = networkData.address;
     var contract = new web3.eth.Contract(
       abi,
-      "0x5FbDB2315678afecb367f032d93F642f64180aa3" // hardcoded
+      "0x6eFe190b1d715a4459e796B3F7e64990093556e8"
     );
     this.setState({ contract });
     const totalSupply = await contract.methods.totalSupply().call();
