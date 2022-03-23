@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.1fce3212.css",
-    "main.js": "/static/js/main.9ecb1f04.js",
-    "static/js/787.3c167a06.chunk.js": "/static/js/787.3c167a06.chunk.js",
-    "index.html": "/index.html",
-    "main.1fce3212.css.map": "/static/css/main.1fce3212.css.map",
-    "main.9ecb1f04.js.map": "/static/js/main.9ecb1f04.js.map",
-    "787.3c167a06.chunk.js.map": "/static/js/787.3c167a06.chunk.js.map"
+    "main.css": "/nft-colour/static/css/main.1fce3212.css",
+    "main.js": "/nft-colour/static/js/main.9f8c98d7.js",
+    "static/js/787.3c167a06.chunk.js": "/nft-colour/static/js/787.3c167a06.chunk.js",
+    "index.html": "/nft-colour/index.html",
+    "main.1fce3212.css.map": "/nft-colour/static/css/main.1fce3212.css.map",
+    "main.9f8c98d7.js.map": "/nft-colour/static/js/main.9f8c98d7.js.map",
+    "787.3c167a06.chunk.js.map": "/nft-colour/static/js/787.3c167a06.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1fce3212.css",
-    "static/js/main.9ecb1f04.js"
+    "static/js/main.9f8c98d7.js"
   ]
 }
